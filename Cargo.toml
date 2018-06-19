@@ -2,6 +2,7 @@
 
 name = "freetype-gl-sys"
 version = "0.1.0"
+authors = ["Nicolas P. Rougier", "Marcel Metz"]
 description = "Rust build helpers and bindings for freetype-gl."
 license-file = "freetype-gl/LICENSE"
 homepage = "https://github.com/arturoc/freetype-sys-rs"
