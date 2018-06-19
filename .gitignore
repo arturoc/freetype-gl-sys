@@ -1,0 +1,4 @@
+freetype*/objs
+target
+Cargo.lock
+.vscode

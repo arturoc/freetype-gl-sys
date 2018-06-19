@@ -1,0 +1,20 @@
+[package]
+
+name = "freetype-gl-sys"
+version = "0.1.0"
+description = "Rust build helpers and bindings for freetype-gl."
+license-file = "freetype-gl/LICENSE"
+homepage = "https://github.com/arturoc/freetype-sys-rs"
+repository = "https://github.com/arturoc/freetype-sys-rs"
+build = "build.rs"
+
+[lib]
+name = "freetype_sys"
+path = "empty.rs"
+
+[build-dependencies]
+cmake = "0.1"
+
+[dependencies]
+freetype-src-sys = "0.1"
+
