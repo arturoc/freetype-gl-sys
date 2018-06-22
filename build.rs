@@ -35,11 +35,10 @@ fn build_unix() {
 	let dest_path = Path::new(&out_dir).join("libfreetype-gl.a");
 	fs::copy(build_dir.join("libfreetype-gl.a"),dest_path).unwrap();
 	println!("cargo:rustc-flags= -L native={}",out_dir);
-	println!("cargo:rerun-if-changed=build.rs");
-	println!("cargo:rerun-if-changed=src/lib.rs");
-	println!("cargo:rerun-if-changed=src");
-	println!("cargo:rerun-if-changed=freetype-gl/texture-font.c");
-	println!("cargo:rerun-if-changed=freetype-gl/texture-font.h");
+	// println!("cargo:rerun-if-changed=build.rs");
+	// println!("cargo:rerun-if-changed=src");
+	// println!("cargo:rerun-if-changed=freetype-gl/texture-font.c");
+	// println!("cargo:rerun-if-changed=freetype-gl/texture-font.h");
 }
 
 
@@ -122,8 +121,6 @@ fn main(){
 	}else if target_triple.contains("windows") {
 		build_windows()
 	}else if target_triple.contains("emscripten") {
-		build_emscripten()
-	}else if target_triple.contains("wasm32"){
 		build_emscripten()
 	}else{
 		panic!("target OS {} not suported yet", target_triple);
