@@ -47,9 +47,9 @@ fn build_emscripten() {
 	let freetype_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
 	let freetype_include = env::var("DEP_FREETYPE2_INCLUDE_SEARCH").unwrap_or("/usr/include".to_string());
 	let freetype_link = env::var("DEP_FREETYPE2_LINK_SEARCH").unwrap_or("/usr/lib/".to_string());
-	let freetype_lib = format!("{}/{}",freetype_link,"libfreetype.a");
-	let prev_cflags = env::var("CFLAGS").unwrap_or("".to_string());
-	let cflags = format!("{} {} -I{}",prev_cflags,"-fPIC",freetype_include);
+	let freetype_lib = format!("{}/{}",freetype_link, "libfreetype.a");
+	// let prev_cflags = env::var("CFLAGS").unwrap_or("".to_string());
+	// let cflags = format!("{} {} -I{}",prev_cflags,"-fPIC",freetype_include);
 	let freetype_native_dir = Path::new(&freetype_dir).join("freetype-gl");
 	let out_dir = env::var("OUT_DIR").unwrap();
 	let build_dir = Path::new(&out_dir).join("build");
@@ -64,7 +64,7 @@ fn build_emscripten() {
 		.arg(format!("-Dfreetype-gl_BUILD_TESTS=OFF"))
 		.arg(format!("-Dfreetype-gl_BUILD_APIDOC=OFF"))
 		.arg(format!("-Dfreetype-gl_WITH_GLEW=OFF"))
-		.env("CFLAGS",&cflags)
+		// .env("CFLAGS",&cflags)
 		.current_dir(&build_dir)
 		.status().unwrap();
 	Command::new("emmake")
