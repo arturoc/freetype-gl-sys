@@ -85,6 +85,8 @@ fn build_windows(){
 	let freetype_root = env::var("DEP_FREETYPE2_ROOT").unwrap();
 	let freetype_root = Path::new(&freetype_root);
 	let freetype_include = freetype_root.join("include");
+	let freetype2_include = freetype_include.join("freetype2");
+	let freetype_include = format!("{};{}", freetype_include.display(), freetype2_include.display());
 	let freetype_link = freetype_root.join("lib");
 	let freetype_lib = freetype_link.join("freetype.lib");
 	let dst = cmake::Config::new("freetype-gl")
