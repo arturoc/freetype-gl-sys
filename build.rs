@@ -107,7 +107,11 @@ fn build_windows(){
 
 	#[cfg(not(debug_assertions))]
 	{
-		let lib_dir = dst.join("build").join("Release");
+		let lib_dir = if env::var("DEBUG").unwrap() == "true" {
+			dst.join("build").join("RelWithDebInfo")
+		}else{
+			dst.join("build").join("Release")
+		};
 		println!("cargo:rustc-link-search=native={}", lib_dir.display());
 	}
 
