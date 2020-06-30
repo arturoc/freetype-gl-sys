@@ -25,6 +25,7 @@ fn build_unix() {
 		.arg(format!("-Dfreetype-gl_BUILD_TESTS=OFF"))
 		.arg(format!("-Dfreetype-gl_WITH_GLEW=OFF"))
 		.arg(format!("-Dfreetype-gl_BUILD_APIDOC=OFF"))
+		// .arg(format!("-DCMAKE_BUILD_TYPE=Debug"))
 		.env("CFLAGS",&cflags)
 		.current_dir(&build_dir)
 		.status().unwrap();
