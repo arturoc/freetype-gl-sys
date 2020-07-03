@@ -1,6 +1,6 @@
 [package]
 name = "freetype-gl-sys"
-version = "0.1.4"
+version = "0.2.0"
 authors = ["Nicolas P. Rougier", "Marcel Metz"]
 description = "Rust build helpers and bindings for freetype-gl."
 license-file = "freetype-gl/LICENSE"
